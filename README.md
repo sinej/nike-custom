@@ -13,7 +13,9 @@
 
 
 ## 실시간 프로젝트 일정
-- [x] 1일차
+- [x] 1일차 설치 및 메인 랜딩페이지<br/>
+  - 랜딩페이지 Three.js로 camera 처리
+    
 - [ ] 2일차
 - [ ] 3일차
 - [ ] 4일차
@@ -35,3 +37,5 @@
 - npm install zustand
 - npm install three @types/three @react-three/fiber
 - npm install @react-three/drei
+- npm i @tanstack/react-query
+-  npm install sneaks-api // 더미데이터
