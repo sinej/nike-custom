@@ -1,4 +1,4 @@
-import { QueryClient } from '@tanstack/react-query'
+import { QueryClient } from 'react-query'
 
 export const getClient = (() => {
     let client: QueryClient | null = null;
@@ -11,12 +11,12 @@ export const getClient = (() => {
 type AnyOBJ = { [key: string]: any}
 
 
-const BASE_URL = "";
-export const fetcher = async ({ method, path, body, params }: {
+const BASE_URL = "https://fakestoreapi.com";
+export const fetcher = async ({ method, path }: {
     method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
     path: string;
     body?: AnyOBJ;
-    params?: AnyOBJ
+    params?: AnyOBJ;
 }) => {
     try {
         const url = `${BASE_URL}${path}`;
@@ -25,17 +25,19 @@ export const fetcher = async ({ method, path, body, params }: {
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': BASE_URL
-            },
+            }
         }
         const res = await fetch(url, fetchOptions);
         const json = await res.json();
         return json
     } catch (error) {
-        throw Error(error)
-
+        console.log("error", error);
     }
 }
 
-export const QueryKeys = {
-    PRODUCTS: "PRODUCTS"
+type QueryKeyType = {
+    PRODUCTS: string;
+}
+export const QueryKeys: QueryKeyType = {
+    PRODUCTS: "PRODUCTS",
 }
